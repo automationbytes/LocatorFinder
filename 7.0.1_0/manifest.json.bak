@@ -1,0 +1,45 @@
+{
+   "background": {
+      "page": "background.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "Fiserv Locator Finder"
+   },
+   "commands": {
+      "_execute_browser_action": {
+         "description": "Get different types of locators in a click",
+         "suggested_key": {
+            "default": "Alt+R",
+            "linux": "Alt+R",
+            "mac": "Alt+R",
+            "windows": "Alt+R"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "content/style.css" ],
+      "js": [ "content/content.js", "content/jquery.min.js", "content/getMethodOrVarText.js", "content/handleTable.js", "content/getCss.js", "content/search.js", "content/record.js", "content/angularLocators.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self'; object-src 'self'",
+   "description": "FLF brings the best XPath to you.",
+   "homepage_url": "https://fiserv.com",
+   "icons": {
+      "128": "logo/128.png",
+      "16": "logo/16.png",
+      "48": "logo/48.png"
+   },
+   "manifest_version": 3,
+   "name": "Fiserv Locator Finder",
+   "offline_enabled": true,
+   "options_page": "option.html",
+   "permissions": [ "contextMenus", "storage", "notifications", "downloads", "downloads.open" ],
+   "short_name": "FLF",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.0.19"
+}
